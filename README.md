@@ -1,6 +1,6 @@
 # FakeRansomware
 
-files will <b>NOT</b> be altered!
+<h2>files will <b>NOT</b> be altered!</h2>
 
 
 This is just a simulation
