@@ -1,5 +1,5 @@
 # FakeRansomware
-<br><br>
+Good to use for any malware showcase.<br>
 
 <h2>files will <b>NOT</b> be altered!</h2>
 
