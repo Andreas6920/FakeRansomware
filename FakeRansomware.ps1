@@ -1,14 +1,16 @@
-﻿## IMPORTANT!! your data will NOT be encrypted or altered. just moved to a desktop folder called "backup_ransomwaresim"
+﻿## IMPORTANT!! your data will NOT be altered. this is fake. check your Documents folder.
 
-$Source = "C:\temp\test1\"
-$backup_folder= "$env:userprofile\Desktop\backup_ransomwaresim"
-$test = dir $Source\* | measure | Select-Object -expand Count
+cls
+$Source = "$env:userprofile\Desktop\"
+$backup_folder= "$env:userprofile\Documents\fakeransomware"
+$count = Get-ChildItem "$env:userprofile\Desktop\" | measure | select -ExpandProperty count
+
 [Reflection.Assembly]::LoadWithPartialName("System.Web") | Out-Null
 $random = [System.Web.Security.Membership]::GeneratePassword(36,1)
-robocopy /mov $Source $backup_folder/s | Out-Null
-GCI $Source | Remove-Item -Force
 
-1..$test | % { $strPath = $Source + $_; "$random" | Out-File $strPath | Out-Null; $strNewPath = $strPath + ".crypt0r" ; Rename-Item -Path $strPath -NewName $strNewPath; }
+robocopy /mov $Source $backup_folder /s 
+
+1..$count | % { $strPath = $Source + $_; "$random" | Out-File $strPath | Out-Null; $strNewPath = $strPath + ".crypt0r" ; Rename-Item -Path $strPath -NewName $strNewPath; }
 cls
 
 write-host "your data is safe. check $backup_folder" -f Yellow
