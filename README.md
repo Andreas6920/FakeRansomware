@@ -1,6 +1,6 @@
 # FakeRansomware
 
-<h2>files will <b style="color:red">NOT</b> be altered!</h2>
+<h2>files will <p style="color:red">NOT</p> be altered!</h2>
 
 
 This is just a simulation.<br>
