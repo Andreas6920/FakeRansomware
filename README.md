@@ -1,5 +1,6 @@
 # FakeRansomware
-Ransomware Simulation
+
+files will <b>NOT</b> be altered!
 
 
 This is just a simulation
