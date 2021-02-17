@@ -45,7 +45,5 @@ $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
  '
     1..99 | % {
         cls; ""; write-host $intro -ForegroundColor White;write "               RANSOMWARE";write "            MuHaHaHaHaHAHAHA!!!";""; Start-Sleep 1;
+}
 
-    }
-
-    test 
