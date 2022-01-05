@@ -9,5 +9,5 @@ It will look like a ransomware attack, but basically it will just move your file
 
 <h2>How to use it:</h2>
 Download simulation.ps1 to your desktop<br>
-Open powershell:<br>
-cd Desktop; powershell -ep bypass .\simulation.ps1
+Open powershell AS ADMINISTRATOR and run this full command:<br>
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JSS0v'))
