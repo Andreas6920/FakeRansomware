@@ -1,36 +1,40 @@
 ﻿## IMPORTANT!! your data will NOT be altered. this is fake. check your Documents folder.
 
 cls
-$Source = "$($env:userprofile)\Desktop\"
-$backup_folder= "$($env:userprofile)\Documents\fakeransomware"
-$count = Get-ChildItem "$($env:userprofile)\Desktop\" | measure | select -ExpandProperty count
-
-[Reflection.Assembly]::LoadWithPartialName("System.Web") | Out-Null
-$random = [System.Web.Security.Membership]::GeneratePassword(36,1)
-
-#
-
-#Cut files
-robocopy /mov $Source $backup_folder /s 
-
-
-#1..$count | % { $strPath = $Source + $_; "$random" | Out-File $strPath | Out-Null; $strNewPath = $strPath + ".crypt0r" ; Rename-Item -Path $strPath -NewName $strNewPath; }
-#cls
-
-$files = (get-childitem "C:\Users\Username\Desktop" -Depth 100).FullName
+$targetdir = "C:\Users\Username\Desktop"
+$backupdir =  "C:\Users\Username\Documents"
+$files = (get-childitem -File $targetdir -Depth 100).FullName | where { ! $_.PSIsContainer }
 $part1 = Split-Path $files;
+$fileextension = "cRypt0r"
 
 
+#Copy folder structure
+Robocopy $targetdir $backupdir /E /XF *.* | out-null
 
 foreach ($file in $files)
 {
+#Ignore files bigger than 1GB
+if(Get-ChildItem $file  | Where-Object {$_.Length -lt 1gb}){
 
-$randomPassword = [System.Web.Security.Membership]::GeneratePassword(16,1)
-$Random = $Random + ".Krypt0r"
+#Copying file from targetdir to backupdir
+$newdir = $file.Replace($targetdir,$backupdir)
+Copy-Item $file $newdir
 
-Join-path -Path $part1 -ChildPath $Random
 
-}
+
+#Generate fake encrypted file
+$encrypted = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($file))
+$encrypted = $encrypted.Substring($encrypted.Length - 16).replace("=","")
+$encrypted = $encrypted + ".$fileextension"
+$path = Join-path -path (Split-Path $file) -ChildPath $encrypted
+
+
+
+
+
+}}
+remove-Item $targetdir -Recurse -force
+
 
 
 
