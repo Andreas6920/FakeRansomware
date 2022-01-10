@@ -1,8 +1,8 @@
 ﻿## IMPORTANT!! your data will NOT be altered. this is fake. check your Documents folder.
 
 cls
-$targetdir = "C:\Users\Username\Desktop"
-$backupdir =  "C:\Users\Username\Documents"
+$targetdir = [Environment]::GetFolderPath("Desktop")
+$backupdir = [Environment]::GetFolderPath("MyDocuments")
 $files = (get-childitem -File $targetdir -Depth 100).FullName | where { ! $_.PSIsContainer }
 $part1 = Split-Path $files;
 $fileextension = "cRypt0r"
@@ -19,21 +19,17 @@ if(Get-ChildItem $file  | Where-Object {$_.Length -lt 1gb}){
 #Copying file from targetdir to backupdir
 $newdir = $file.Replace($targetdir,$backupdir)
 Copy-Item $file $newdir
-
-
+Remove-item $file
 
 #Generate fake encrypted file
 $encrypted = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($file))
 $encrypted = $encrypted.Substring($encrypted.Length - 16).replace("=","")
 $encrypted = $encrypted + ".$fileextension"
 $path = Join-path -path (Split-Path $file) -ChildPath $encrypted
-
-
-
-
+new-item $path | out-null
 
 }}
-remove-Item $targetdir -Recurse -force
+
 
 
 
@@ -44,8 +40,8 @@ write-host "your data is safe. check $backup_folder" -f Yellow
 
 $intro = 
 '
-               uuuuuuu
-             uu$$$$$$$$$$$uu |
+                 uuuuuuu
+             uu$$$$$$$$$$$uu 
           uu$$$$$$$$$$$$$$$$$uu
          u$$$$$$$$$$$$$$$$$$$$$u
         u$$$$$$$$$$$$$$$$$$$$$$$u
