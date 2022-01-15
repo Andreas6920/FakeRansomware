@@ -1,7 +1,7 @@
 # Remove fake files
     $files = "$($env:ProgramData)\andreas6920\moved_files.txt"
-    $files = get-content $file.Split([Environment]::NewLine)
-    foreach ($file in $files){remove-item $file -Force -ea ignore | Out-Null} 
+    foreach($line in [System.IO.File]::ReadLines($files))
+    {remove-item $line -Force -ea ignore | Out-Null}
 
 # Copy original files to original desktop
     $source = [Environment]::GetFolderPath("MyDocuments") + "\backup"
