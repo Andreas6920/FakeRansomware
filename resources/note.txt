@@ -7,12 +7,12 @@ Next, find the decrypt software on your desktop, an executable file named "decry
 
 ############################################################################
 ############################################################################
-#### 																	####
-####        THIS IS JUST A JOKE. IT'S A FAKE RANSOMWARE ATTACK			####
-####   ALL YOUR FILES ON THE DESKTOP ARE JUST MOVED TO YOUR DOCUMENTS 	####
-#### 																	####
-####            Credit: https://github.com/Andreas6920					####
-#### 																	####
+####                                                                    ####
+####        THIS IS JUST A JOKE. IT'S A FAKE RANSOMWARE ATTACK          ####
+####   ALL YOUR FILES ON THE DESKTOP ARE JUST MOVED TO YOUR DOCUMENTS   ####
+####                                                                    ####
+####            Credit: https://github.com/Andreas6920                  ####
+####                                                                    ####
 ############################################################################
 ############################################################################
 
