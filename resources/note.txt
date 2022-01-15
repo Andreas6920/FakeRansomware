@@ -1,0 +1,18 @@
+Ooops, your important files are encrypted. It means you will not be able to access them anymore until they are encrypted.
+If you follow our instructions we guarantee that you can decrypt all your files quickly and safely!
+
+What to do:
+Please send $1.000 worth of bitcoin to this bitcoin address: 1FfmbHfnpbZjKFvyi1okTjJJusN455paPH
+Next, find the decrypt software on your desktop, an executable file named "decrypter.exe"
+
+############################################################################
+############################################################################
+#### 																	####
+####        THIS IS JUST A JOKE. IT'S A FAKE RANSOMWARE ATTACK			####
+####   ALL YOUR FILES ON THE DESKTOP ARE JUST MOVED TO YOUR DOCUMENTS 	####
+#### 																	####
+####            Credit: https://github.com/Andreas6920					####
+#### 																	####
+############################################################################
+############################################################################
+
