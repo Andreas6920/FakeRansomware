@@ -10,7 +10,7 @@
     Remove-Item $source -recurse -Force -ea ignore  | Out-Null
 
 
-# Change wallpaper to the original one
+# Change wallpaper back to the original one
     $wallpaper = get-content "$($env:ProgramData)\andreas6920\originalwallpaper_location.txt"
 
 Function Set-WallPaper {
