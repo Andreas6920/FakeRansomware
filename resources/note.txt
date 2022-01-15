@@ -1,4 +1,4 @@
-Ooops, your important files are encrypted. It means you will not be able to access them anymore until they are encrypted.
+Ooops, your important files are encrypted. It means you will not be able to access them anymore until they are decrypted.
 If you follow our instructions we guarantee that you can decrypt all your files quickly and safely!
 
 What to do:
