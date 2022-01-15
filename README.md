@@ -13,3 +13,10 @@ open powershell <b>AS ADMIN</b> and run:
 ```
 iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JSS0v'))
 ```
+
+
+## Install
+open powershell <b>AS ADMIN</b> and run:
+```
+Invoke-WebRequest -uri "https://raw.githubusercontent.com/Andreas6920/WinOptimizer/main/Winoptimizer.ps1" -OutFile "$env:ProgramData\Winoptimizer.ps1" -UseBasicParsing; cls; powershell -ep bypass "$env:ProgramData\Winoptimizer.ps1"
+```
