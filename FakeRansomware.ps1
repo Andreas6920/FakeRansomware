@@ -7,10 +7,8 @@
         mkdir $folder_base -ea ignore | Out-Null
     $wallpaper = "$folder_base\Wallpaper.jpg"
     $note = "$folder_base\READ_ME.txt"
-    $movedfiles = "$folder_base\moved_files.txt"
-    $wallpaperlocation = "$folder_base\originalwallpaper_location.txt"
-    (Get-ItemProperty -Path 'HKCU:\Control Panel\Desktop' -Name Wallpaper).Wallpaper > $wallpaperlocation
-
+    $movedfiles = "$folder_base\fake_files.txt"
+    
     Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/Background.jpg" -o $wallpaper
     Invoke-WebRequest "https://github.com/Andreas6920/FakeRansomware/raw/main/resources/note.txt" -o $note
 
@@ -218,8 +216,7 @@ $intro =
     $$$"                         $$$$"
                                                                                                                                                 
 '
-#1..99 | % {
-    #cls; ""; write-host $intro -ForegroundColor White; write "               RANSOMWARE";write "            MuHaHaHaHaHAHAHA!!!";""; Start-Sleep 1;}
+1..99 | % {cls; ""; write-host $intro -ForegroundColor White; Write-Host "               RANSOMWARE";Write-Host "            MuHaHaHaHaHAHAHA!!!";""; Start-Sleep 1;}
 
 
 
