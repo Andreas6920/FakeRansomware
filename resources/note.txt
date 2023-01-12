@@ -17,4 +17,4 @@ Next, find the decrypt software on your desktop, an executable file named "decry
 ############################################################################
 
 To quickly restore your Desktop, go to the decrypter script:
-iwr -useb https://raw.githubusercontent.com/Andreas6920/FakeRansomware/main/resources/decrypter.ps1 | iex
+iwr -useb https://github.com/Andreas6920/FakeRansomware/blob/main/resources/decrypter.ps1 
